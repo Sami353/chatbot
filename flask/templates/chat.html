@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+      <button
+        id="chat-widget-button"
+        type="button"
+        class="btn btn-primary rounded-circle position-fixed chat-sign-button"
+        style="bottom: 20px; right: 20px"
+      ><span class="material-symbols-outlined">
+          live_help
+        </span></button>
+      <div
+        id="chat-widget"
+        class="card position-fixed shadow d-none"
+        
+      >
+        <div class="card-header bg-primary text-white">
+          Chatbot
+          <button
+            id="chat-widget-close-button"
+            type="button"
+            class="btn-close float-end"
+            aria-label="Close"
+          ><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="card-body" id="chat-widget-messages">
+          <!-- Chat messages will be appended here -->
+        </div>
+        <div class="card-footer">
+          <input
+            type="text"
+            class="form-control"
+            id="chat-widget-input"
+            placeholder="Type your message..."
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $("#chat-widget-button").on("click", function () {
+          $("#chat-widget").toggleClass("d-none");
+        });
+        $('#chat-widget-messages').scrollTop($('#chat-widget-messages')[0].scrollHeight);
+        $("#chat-widget-close-button").on("click", function () {
+          $("#chat-widget").toggleClass("d-none");
+        });
+        $("#chat-widget-input").keypress(function (event) {
+          if (event.which === 13) {
+            let userMessage = $("#chat-widget-input").val();
+            $("#chat-widget-input").val("");
+
+            //append user message to Chatbot
+            $("#chat-widget-messages").append(
+              "<div class='user-message message'>" + userMessage + "</div>"
+            );
+            // Send user message to the server and get bot's response
+            $.ajax({
+              type: "POST",
+              url: "/webhook",
+              contentType: "application/json",
+              data: JSON.stringify({ message: userMessage }),
+              success: function (data) {
+                let botResponse = data.response;
+                // Append bot's response to the chatbox
+                $("#chat-widget-messages").append(
+                  "<div class='bot-message message'><strong>Bot:</strong> " + botResponse + "</div>"
+                );
+              
+                $("#chat-widget-messages").scrollTop($("#chat-widget-messages")[0].scrollHeight);
+              },
+
+              error: function (error) {
+                // Handle error if needed
+              },
+            });
+          }
+        });
+      });
+    </script>
+{% endblock%}

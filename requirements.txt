@@ -1,0 +1,4 @@
+rasa
+psycopg2
+flask
+flask_socketio

@@ -1,0 +1,6 @@
+[
+  {
+    "name": "course",
+    "pattern": "(\\bBCS\\b|\\bBBA\\b|\\bBHM\\b)"
+  }
+]

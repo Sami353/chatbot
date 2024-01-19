@@ -1,0 +1,187 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: can_do
+  examples: |
+    - what can you do ?
+    - what can i ask ?
+    - can you help me ?
+    - learn more
+
+- intent: courses_available
+  examples: |
+    - What are the courses available?
+    - What courses are available?
+    - course
+    - courses
+    - what courses are there?
+    - what courses are available?
+    - what courses can I take?
+    - what courses can I enroll in?
+    - what courses can I register for?
+    
+
+- intent: inquire_about_course
+  examples: |
+    - Tell me about the [BCS](course) course.
+    - I want to know more about [BBA](course).
+    - What can you tell me about [BHM](course)?
+    - Details about [BBA](course).
+    - Information on [BCS](course).
+    - Can you tell me more about [BHM](course)?
+    - Tell me about [BBA](course).
+    - [BBA](course)
+
+- intent: inquire_about_fees
+  examples: |
+    - What are the fees for [BCS](course)?
+    - How much does [BBA](course) cost?
+    - Tell me the fee structure of [BHM](course).
+    - What is the total fee for [BBA](course)?
+    - Break down the costs for [BCS](course).
+    - fee
+    - fees
+    - fee structure
+    - cost
+    - costs
+    - total cost
+    - total fees
+    - tuition fees
+    - tuition
+    - tuition fees for [BCS](course)
+    - semester fee
+    - semester fees
+    - semester tuition
+
+
+- intent: inquire_about_admission_requirements
+  examples: |
+    - What are the admission requirements for [BCS](course)?
+    - How can I get admitted to [BBA](course)?
+    - What do I need to apply for [BHM](course)?
+    - Admission criteria for [BBA](course).
+    - Eligibility for [BCS](course).
+    - requirements for [BHM](course).
+    - admission requirements for [BCS](course)
+    - admission process for [BBA](course)
+    - admission [BBA](course)
+    - [BCS](course) admission
+
+- intent: dumb_user
+  examples: |
+    - scholarships
+    - scholarship
+    - financial aid
+    - eligibility
+    - admission requirements
+    - admission criteria
+    - admission process
+    - admission
+
+- intent: inquire_about_scholarships
+  examples: |
+    - Are there scholarships for [BCS](course)?
+    - Can I get a scholarship for [BBA](course)?
+    - What scholarships are available for [BHM](course)?
+    - Tell me about financial aid for [BBA](course).
+    - Does [BCS](course) offer any scholarships?
+    - Scholarships for [BHM](course).
+    - financial aid for [BCS](course)
+    - [BCS](course) scholarship
+    - scholarship [BHM](course)
+
+
+- lookup: course
+  examples: |
+    - BCS
+    - BBA
+    - BHM
