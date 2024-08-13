@@ -1,5 +1,9 @@
 ### Rasa Chatbot Project
 
+# Rasa Environment Setup Guide
+
+https://rasa.com/docs/rasa/installation/environment-set-up/
+
 # Flask Setup Guide
 
 ## Step 1: Install Python
